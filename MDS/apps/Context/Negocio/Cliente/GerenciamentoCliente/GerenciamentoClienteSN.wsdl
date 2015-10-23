@@ -1,0 +1,48 @@
+<?xml version= '1.0' encoding= 'UTF-8' ?>
+<wsdl:definitions
+     name="GerenciamentoClienteSN"
+     targetNamespace="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteSN"
+     xmlns:tns="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteSN"
+     xmlns:msg="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteMensagem"
+     xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+     xmlns:soap="http://schemas.xmlsoap.org/wsdl/soap/"
+     xmlns:wsdl="http://schemas.xmlsoap.org/wsdl/">
+    <wsdl:types>
+        <schema xmlns="http://www.w3.org/2001/XMLSchema" 
+              targetNamespace="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteSN"
+             elementFormDefault="qualified">
+            
+            <xsd:import namespace="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteMensagem" 
+                        schemaLocation="GerenciamentoClienteMensagem.xsd" />
+        </schema>
+    </wsdl:types>
+    <wsdl:message name="requestMessage">
+        <wsdl:part name="request" element="msg:ConsultarClienteRequestMensagem"/>
+    </wsdl:message>
+    <wsdl:message name="replyMessage">
+        <wsdl:part name="response" element="msg:ConsultarClienteResponseMensagem"/>
+    </wsdl:message>
+    <wsdl:portType name="GerenciamentoCliente_ptt">
+        <wsdl:operation name="execute">
+            <wsdl:input message="tns:requestMessage"/>
+            <wsdl:output message="tns:replyMessage"/>
+        </wsdl:operation>
+    </wsdl:portType>
+    <wsdl:binding name="GerenciamentoCliente_bind" type="tns:GerenciamentoCliente_ptt">
+        <soap:binding transport="http://schemas.xmlsoap.org/soap/http"/>
+        <wsdl:operation name="execute">
+            <soap:operation style="document" soapAction="execute"/>
+            <wsdl:input>
+                <soap:body use="literal" namespace="http://xmlns.context.com/GerenciamentoCliente/GerenciamentoClienteSN"/>
+            </wsdl:input>
+            <wsdl:output>
+                <soap:body use="literal" namespace="http://xmlns.context.com/GerenciamentoCliente/GerenciamentoClienteSN"/>
+            </wsdl:output>
+        </wsdl:operation>
+    </wsdl:binding>
+    <wsdl:service name="GerenciamentoClienteService">
+        <wsdl:port name="GerenciamentoClienteSN" binding="tns:GerenciamentoCliente_bind">
+            <soap:address location="http://localhost:8001/GerenciamentoCliente/GerenciamentoClienteSN"/>
+        </wsdl:port>
+    </wsdl:service>
+</wsdl:definitions>

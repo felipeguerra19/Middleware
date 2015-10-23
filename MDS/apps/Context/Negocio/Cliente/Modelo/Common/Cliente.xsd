@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" 
+            xmlns:cli="http://xmlns.context.com/Modelo/Common/Cliente"
+            targetNamespace="http://xmlns.context.com/Modelo/Common/Cliente" 
+            xmlns:tns="http://xmlns.context.com/Modelo/Common/Cliente" 
+            elementFormDefault="qualified">
+  <xsd:element name="ClienteElement" type="cli:ClienteType" />
+  
+  <xsd:complexType name="ClienteType">
+    <xsd:sequence>
+      <xsd:element name="Nome" type="xsd:string" minOccurs="1" />
+    </xsd:sequence>
+  </xsd:complexType>
+
+  
+</xsd:schema>

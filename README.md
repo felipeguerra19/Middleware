@@ -1,2 +1,2 @@
 # Middleware
-Projetos pertinentes Oracle Fusion Middleware
+Projetos pertinentes ao Oracle Fusion Middleware

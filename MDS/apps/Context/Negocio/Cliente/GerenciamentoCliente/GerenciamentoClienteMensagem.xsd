@@ -6,7 +6,7 @@
             elementFormDefault="qualified">
   
   <xsd:import namespace="http://xmlns.context.com/Modelo/Common/Cliente" 
-              schemaLocation="../Schemas/Cliente.xsd" />
+              schemaLocation="../Modelo/Common/Cliente.xsd" />
   
   <xsd:element name="ConsultarClienteRequestMensagem">
     <xsd:complexType>

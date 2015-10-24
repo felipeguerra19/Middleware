@@ -1,1 +1,9 @@
 /.data/*
+.adf/META-INF/connections.xml
+.adf/META-INF/wsm-assembly.xml
+MDS/apps.zip
+MDSSample/deploy/sca_MDSSample_rev1.0.jar
+MDSSample/SOA/SCA-INF/MDSSample.diagram.jpg
+MDSSample/SOA/SCA-INF/MDSSample.diagram.xml
+MDSSample/SOA/SCA-INF/classes/scac.log
+MDSSample/SOA/SCA-INF/classes/scac_out.xml

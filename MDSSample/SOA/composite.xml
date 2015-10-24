@@ -11,4 +11,27 @@
            xmlns:orawsp="http://schemas.oracle.com/ws/2006/01/policy"
            xmlns:ui="http://xmlns.oracle.com/soa/designer/"
            xmlns:sca-ext="http://xmlns.oracle.com/sca/1.0-ext">
+  <import namespace="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteSN"
+          location="oramds:/apps/Context/Negocio/Cliente/GerenciamentoCliente/GerenciamentoClienteSN.wsdl"
+          importType="wsdl"/>
+  <service name="GerenciamentoClienteSN"
+           ui:wsdlLocation="oramds:/apps/Context/Negocio/Cliente/GerenciamentoCliente/GerenciamentoClienteSN.wsdl">
+    <interface.wsdl interface="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteSN#wsdl.interface(GerenciamentoCliente_ptt)"/>
+    <binding.ws port="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteSN#wsdl.endpoint(GerenciamentoClienteSN/GerenciamentoCliente_pt)">
+      <property name="weblogic.wsee.wsat.transaction.flowOption" type="xs:string" many="false">NEVER</property>
+    </binding.ws>
+  </service>
+  <component name="GerenciamentoCliente_Route">
+    <implementation.mediator src="Mediators/GerenciamentoCliente_Route.mplan"/>
+    <componentType>
+      <service name="GerenciamentoCliente_Route"
+               ui:wsdlLocation="oramds:/apps/Context/Negocio/Cliente/GerenciamentoCliente/GerenciamentoClienteSN.wsdl">
+        <interface.wsdl interface="http://xmlns.context.com/Negocio/GerenciamentoCliente/GerenciamentoClienteSN#wsdl.interface(GerenciamentoCliente_ptt)"/>
+      </service>
+    </componentType>
+  </component>
+  <wire>
+    <source.uri>GerenciamentoClienteSN</source.uri>
+    <target.uri>GerenciamentoCliente_Route/GerenciamentoCliente_Route</target.uri>
+  </wire>
 </composite>
